@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-动力电池回收企业推荐 - TOP 5
+动力电池回收企业推荐
 """
 
-# 推荐回收企业信息（TOP 5）
-TOP5_RECYCLERS = [
+# 推荐回收企业信息（序号列表，非排名）
+RECOMMENDED_RECYCLERS = [
     {
-        "rank": 1,
+        "seq": 1,
         "name": "武汉动力电池再生技术有限公司",
         "parent_company": "格林美股份有限公司（SZ.002340）控股子公司",
         "phone": "027-86967777",
@@ -51,7 +51,7 @@ TOP5_RECYCLERS = [
         "note": "努力打造世界最大的动力电池回收利用企业"
     },
     {
-        "rank": 2,
+        "seq": 2,
         "name": "邦普循环（宁德时代子公司）",
         "location": "广东佛山",
         "technology": "湿法冶金",
@@ -59,7 +59,7 @@ TOP5_RECYCLERS = [
         "note": "背靠宁德时代，原料来源稳定，一体化布局"
     },
     {
-        "rank": 3,
+        "seq": 3,
         "name": "华友钴业",
         "location": "浙江衢州",
         "technology": "湿法冶金",
@@ -67,7 +67,7 @@ TOP5_RECYCLERS = [
         "note": "钴镍资源垂直整合，印尼镍资源配套"
     },
     {
-        "rank": 4,
+        "seq": 4,
         "name": "天奇股份",
         "location": "江苏无锡",
         "technology": "湿法冶金",
@@ -75,7 +75,7 @@ TOP5_RECYCLERS = [
         "note": "汽车拆解协同，产业链完整"
     },
     {
-        "rank": 5,
+        "seq": 5,
         "name": "广东光华科技",
         "location": "广东汕头",
         "technology": "湿法冶金",
@@ -97,9 +97,9 @@ WHITELIST_SUMMARY = {
 }
 
 
-def get_top5_recyclers():
-    """获取TOP 5推荐企业"""
-    return TOP5_RECYCLERS
+def get_recommended_recyclers():
+    """获取推荐企业列表"""
+    return RECOMMENDED_RECYCLERS
 
 
 def get_whitelist_summary():
@@ -112,7 +112,7 @@ def print_recommendation():
     summary = get_whitelist_summary()
     
     print("\n" + "="*70)
-    print("🔋 工信部动力电池回收白名单企业推荐")
+    print("🔋 工信部动力电池回收白名单企业")
     print("="*70)
     print(f"\n📊 白名单概况：")
     print(f"   总计 {summary['total_batches']} 批次，共 {summary['total_companies']} 家企业")
@@ -121,12 +121,12 @@ def print_recommendation():
         print(f"     {batch}: {count}家")
     
     print(f"\n" + "-"*70)
-    print("🏆 TOP 5 推荐企业")
+    print("📋 推荐企业（按序号排列，非排名）")
     print("-"*70)
     
-    # 第1名详细展示
-    company = TOP5_RECYCLERS[0]
-    print(f"\n【第 {company['rank']} 名】{company['name']}")
+    # 第1家企业详细展示
+    company = RECOMMENDED_RECYCLERS[0]
+    print(f"\n【{company['seq']}】{company['name']}")
     print(f"   📞 联系电话: {company['phone']}")
     print(f"   🏢 控股股东: {company['parent_company']}")
     print(f"   📅 成立时间: {company['established']}")
@@ -147,16 +147,16 @@ def print_recommendation():
     print(f"   📋 标准制定: {company['standards']}")
     print(f"\n   💡 企业愿景: {company['note']}")
     
-    # 第2-5名简化展示
-    for company in TOP5_RECYCLERS[1:]:
-        print(f"\n【第 {company['rank']} 名】{company['name']}")
+    # 第2-5家企业简化展示
+    for company in RECOMMENDED_RECYCLERS[1:]:
+        print(f"\n【{company['seq']}】{company['name']}")
         print(f"   📍 地址: {company['location']}")
         print(f"   🔬 技术路线: {company['technology']}")
         print(f"   ✅ 资质: {', '.join(company['qualifications'])}")
-        print(f"   💡 推荐理由: {company['note']}")
+        print(f"   💡 特点: {company['note']}")
     
     print("\n" + "="*70)
-    print("📌 说明：以上推荐基于技术实力、资质荣誉、行业地位综合评估")
+    print("📌 说明：以上企业按序号排列，基于技术实力、资质荣誉、行业地位综合推荐")
     print("      （产能数据未列出，因行业产能利用率波动较大，实际处理能力需以企业实际运营为准）")
     print("="*70 + "\n")
 
