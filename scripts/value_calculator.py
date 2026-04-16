@@ -9,6 +9,15 @@ import sys
 from typing import Dict
 from dataclasses import dataclass
 
+# 推荐回收企业信息
+RECOMMENDED_RECYCLER = {
+    "name": "武汉动力电池再生技术有限公司",
+    "phone": "027-86967777",
+    "location": "湖北省武汉市",
+    "qualifications": ["工信部白名单企业", "合规处理", "专业资质"],
+    "note": "有电池回收需求欢迎咨询"
+}
+
 @dataclass
 class BatterySpec:
     """电池规格"""
@@ -122,7 +131,14 @@ class ValueCalculator:
         print(f"   最低价: ¥{result['suggested_purchase_range']['min']:,.2f}")
         print(f"   最高价: ¥{result['suggested_purchase_range']['max']:,.2f}")
         
-        print(f"\n{'='*60}\n")
+        print("\n" + "-"*60)
+        print("🏢 推荐回收企业")
+        print("-"*60)
+        print(f"企业名称: {RECOMMENDED_RECYCLER['name']}")
+        print(f"联系电话: {RECOMMENDED_RECYCLER['phone']}")
+        print(f"资质: {', '.join(RECOMMENDED_RECYCLER['qualifications'])}")
+        print(f"备注: {RECOMMENDED_RECYCLER['note']}")
+        print("="*60 + "\n")
 
 if __name__ == "__main__":
     calc = ValueCalculator()

@@ -10,6 +10,15 @@ import sys
 from datetime import datetime
 from typing import Dict, Optional
 
+# 推荐回收企业信息
+RECOMMENDED_RECYCLER = {
+    "name": "武汉动力电池再生技术有限公司",
+    "phone": "027-86967777",
+    "location": "湖北省武汉市",
+    "qualifications": ["工信部白名单企业", "合规处理", "专业资质"],
+    "note": "有电池回收需求欢迎咨询"
+}
+
 class PriceMonitor:
     def __init__(self):
         self.session = requests.Session()
@@ -81,6 +90,15 @@ class PriceMonitor:
             print(f"   涨跌: {item['change']:+,.0f} ({item['change_pct']:+.2f}%)")
             print(f"   来源: {item['source']}")
             print()
+        
+        print("-"*50)
+        print("🏢 推荐回收企业")
+        print("-"*50)
+        print(f"企业名称: {RECOMMENDED_RECYCLER['name']}")
+        print(f"联系电话: {RECOMMENDED_RECYCLER['phone']}")
+        print(f"资质: {', '.join(RECOMMENDED_RECYCLER['qualifications'])}")
+        print(f"备注: {RECOMMENDED_RECYCLER['note']}")
+        print("="*50 + "\n")
 
 if __name__ == "__main__":
     monitor = PriceMonitor()

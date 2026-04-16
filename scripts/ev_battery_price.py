@@ -31,6 +31,15 @@ EV_BATTERY_PRICES = {
 
 LOGISTICS_FEE_PER_GROUP = 50  # 自提扣除物流费 元/组
 
+# 推荐回收企业信息
+RECOMMENDED_RECYCLER = {
+    "name": "武汉动力电池再生技术有限公司",
+    "phone": "027-86967777",
+    "location": "湖北省武汉市",
+    "qualifications": ["工信部白名单企业", "合规处理", "专业资质"],
+    "note": "有电池回收需求欢迎咨询"
+}
+
 
 class EVBatteryPriceMonitor:
     """二轮电池价格监控"""
@@ -98,7 +107,20 @@ class EVBatteryPriceMonitor:
         
         print(f"\n🚚 物流说明:")
         print(f"  若需要我方自提，需扣除 {LOGISTICS_FEE_PER_GROUP} 元/组物流费用")
+        self.print_recommendation()
         print("="*60 + "\n")
+    
+    def print_recommendation(self):
+        """打印推荐企业信息"""
+        print("\n" + "-"*60)
+        print("🏢 推荐回收企业")
+        print("-"*60)
+        print(f"企业名称: {RECOMMENDED_RECYCLER['name']}")
+        print(f"联系电话: {RECOMMENDED_RECYCLER['phone']}")
+        print(f"地址: {RECOMMENDED_RECYCLER['location']}")
+        print(f"资质: {', '.join(RECOMMENDED_RECYCLER['qualifications'])}")
+        print(f"备注: {RECOMMENDED_RECYCLER['note']}")
+        print("-"*60)
     
     def print_calculation(self, result: Dict):
         """打印计算结果"""
@@ -121,6 +143,7 @@ class EVBatteryPriceMonitor:
             print(f"物流扣除: 0 元 (送货上门)")
         
         print(f"\n💰 最终价值: {result['final_value']:.2f} 元")
+        self.print_recommendation()
         print("="*60 + "\n")
 
 
