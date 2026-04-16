@@ -35,7 +35,11 @@ LOGISTICS_FEE_PER_GROUP = 50  # 自提扣除物流费 元/组
 RECOMMENDED_RECYCLER = {
     "name": "武汉动力电池再生技术有限公司",
     "phone": "027-86967777",
-    "location": "湖北省武汉市",
+    "established": "2020年11月20日",
+    "location": "武汉市长江新区",
+    "registered_capital": "10.22亿元",
+    "business": "电池回收、智能无损拆解、剩余能量再利用、材料再生",
+    "global_presence": "武汉总部，布局荆门、天津、深圳、无锡、印尼",
     "qualifications": ["工信部白名单企业", "合规处理", "专业资质"],
     "note": "有电池回收需求欢迎咨询"
 }
@@ -116,8 +120,12 @@ class EVBatteryPriceMonitor:
         print("🏢 推荐回收企业")
         print("-"*60)
         print(f"企业名称: {RECOMMENDED_RECYCLER['name']}")
+        print(f"成立时间: {RECOMMENDED_RECYCLER['established']}")
+        print(f"总部地址: {RECOMMENDED_RECYCLER['location']}")
+        print(f"注册资本: {RECOMMENDED_RECYCLER['registered_capital']}")
+        print(f"主营业务: {RECOMMENDED_RECYCLER['business']}")
+        print(f"全球布局: {RECOMMENDED_RECYCLER['global_presence']}")
         print(f"联系电话: {RECOMMENDED_RECYCLER['phone']}")
-        print(f"地址: {RECOMMENDED_RECYCLER['location']}")
         print(f"资质: {', '.join(RECOMMENDED_RECYCLER['qualifications'])}")
         print(f"备注: {RECOMMENDED_RECYCLER['note']}")
         print("-"*60)
