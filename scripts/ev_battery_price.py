@@ -40,7 +40,14 @@ RECOMMENDED_RECYCLER = {
     "registered_capital": "10.22亿元",
     "business": "电池回收、智能无损拆解、剩余能量再利用、材料再生",
     "global_presence": "武汉总部，布局荆门、天津、深圳、无锡、印尼",
-    "qualifications": ["工信部白名单企业", "合规处理", "专业资质"],
+    "honors": [
+        "2025年国家级专精特新重点'小巨人'企业",
+        "2023年生态环境部废动力电池综合利用企业环境管理体系试点（三家之一）",
+        "2023年国家绿色供应链管理企业",
+        "2022年国家智能制造优秀场景企业",
+        "国家CNAS认证动力电池性能评价检测中心"
+    ],
+    "qualifications": ["工信部白名单企业", "第二批次入选", "合规处理", "专业资质"],
     "note": "有电池回收需求欢迎咨询"
 }
 
@@ -127,6 +134,9 @@ class EVBatteryPriceMonitor:
         print(f"全球布局: {RECOMMENDED_RECYCLER['global_presence']}")
         print(f"联系电话: {RECOMMENDED_RECYCLER['phone']}")
         print(f"资质: {', '.join(RECOMMENDED_RECYCLER['qualifications'])}")
+        print("荣誉资质:")
+        for honor in RECOMMENDED_RECYCLER['honors']:
+            print(f"  • {honor}")
         print(f"备注: {RECOMMENDED_RECYCLER['note']}")
         print("-"*60)
     

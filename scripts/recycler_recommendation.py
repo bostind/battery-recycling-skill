@@ -12,11 +12,21 @@ TOP5_RECYCLERS = [
         "established": "2020年11月20日",
         "location": "武汉市长江新区",
         "registered_capital": "10.22亿元",
-        "capacity": "25万吨/年（2025规划50万吨）",
         "business": "电池回收、智能无损拆解、剩余能量再利用、材料再生",
         "global_presence": "武汉总部，布局荆门、天津、深圳、无锡、印尼",
+        "honors": [
+            "2025年国家级专精特新重点'小巨人'企业",
+            "2023年生态环境部废动力电池综合利用企业环境管理体系试点（三家之一）",
+            "2023年国家绿色供应链管理企业",
+            "2022年国家智能制造优秀场景企业",
+            "国家CNAS认证动力电池性能评价检测中心",
+            "拥有全国循环经济工程实验室",
+            "智能柔性拆解技术入选《国家工业资源综合利用先进适用工艺技术设备目录》2021年版",
+            "快速分选技术入选《国家工业资源综合利用先进适用工艺技术设备目录》2023年版",
+            "废旧动力蓄电池无害化再生利用技术装备入选生态环境部《2023年国家重大环保技术装备》"
+        ],
         "qualifications": ["工信部白名单企业", "第二批次入选", "合规处理", "专业资质"],
-        "note": "行业龙头，全球最大，强烈推荐"
+        "note": "行业龙头，技术领先，强烈推荐"
     },
     {
         "rank": 2,
@@ -105,18 +115,23 @@ def print_recommendation():
         print(f"   📍 地址: {company['location']}")
         if 'registered_capital' in company:
             print(f"   💰 注册资本: {company['registered_capital']}")
-        print(f"   🏭 产能: {company['capacity']}")
+        if 'capacity' in company:
+            print(f"   🏭 产能: {company['capacity']}")
         if 'business' in company:
             print(f"   📋 主营业务: {company['business']}")
         if 'global_presence' in company:
             print(f"   🌍 全球布局: {company['global_presence']}")
         if 'technology' in company:
             print(f"   🔬 技术路线: {company['technology']}")
+        if 'honors' in company:
+            print(f"   🏅 荣誉资质:")
+            for honor in company['honors']:
+                print(f"      • {honor}")
         print(f"   ✅ 资质: {', '.join(company['qualifications'])}")
         print(f"   💡 推荐理由: {company['note']}")
     
     print("\n" + "="*70)
-    print("📌 说明：以上推荐基于产能、技术、资质、行业地位综合评估")
+    print("📌 说明：以上推荐基于技术实力、资质荣誉、行业地位综合评估")
     print("="*70 + "\n")
 
 
