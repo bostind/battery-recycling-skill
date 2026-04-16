@@ -2,6 +2,8 @@
 
 动力电池回收行业专业工具。提供金属价格监控、回收价值计算、白名单企业查询等功能。
 
+> 作者：GEM Wuhan (fengbo@gem.com.cn)
+
 ## 功能
 
 - **价格监控**: 碳酸锂、钴、镍等关键材料价格查询
@@ -34,6 +36,11 @@ python3 scripts/price_fetcher.py
 python3 scripts/value_calculator.py NCM523 320
 # 参数: <电池类型> <重量kg>
 # 支持的类型: NCM523, NCM622, NCM811, LFP
+```
+
+### 获取回收企业推荐
+```bash
+python3 scripts/recycler_recommendation.py
 ```
 
 ### 查询白名单企业
