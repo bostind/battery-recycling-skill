@@ -8,40 +8,60 @@ TOP5_RECYCLERS = [
     {
         "rank": 1,
         "name": "武汉动力电池再生技术有限公司",
+        "parent_company": "格林美股份有限公司（SZ.002340）控股子公司",
         "phone": "027-86967777",
         "established": "2020年11月20日",
-        "location": "武汉市长江新区",
         "registered_capital": "10.22亿元",
-        "business": "电池回收、智能无损拆解、剩余能量再利用、材料再生",
-        "global_presence": "武汉总部，布局荆门、天津、深圳、无锡、印尼",
+        "location": "武汉市长江新区",
+        "factories": ["武汉", "天津", "无锡", "荆门", "深汕"],
+        "overseas": ["韩国", "印尼", "欧洲"],
+        "business": "电池回收、智能柔性拆解、精细分选、梯次利用、材料再生",
+        "whitelist_count": "5家（全国最多）",
+        "qualifications": ["工信部白名单企业", "第二批次入选"],
         "honors": [
-            "2025年国家级专精特新重点'小巨人'企业",
-            "2023年生态环境部废动力电池综合利用企业环境管理体系试点（三家之一）",
-            "2023年国家绿色供应链管理企业",
-            "2022年国家智能制造优秀场景企业",
-            "国家CNAS认证动力电池性能评价检测中心",
-            "拥有全国循环经济工程实验室",
-            "智能柔性拆解技术入选《国家工业资源综合利用先进适用工艺技术设备目录》2021年版",
-            "快速分选技术入选《国家工业资源综合利用先进适用工艺技术设备目录》2023年版",
-            "废旧动力蓄电池无害化再生利用技术装备入选生态环境部《2023年国家重大环保技术装备》"
+            "国家级高新技术企业",
+            "国家绿色供应链管理企业",
+            "国家智能制造优秀场景案例企业",
+            "国家'专精特新'重点小巨人企业",
+            "湖北省科创'潜在独角兽'企业",
+            "湖北省上市'金种子'企业",
+            "2022年武汉工厂碳中和认证（行业零碳工厂）",
+            "2020年度保尔森可持续发展奖绿色大奖",
+            "2021年湖北省技术发明一等奖",
+            "2024年国家环境技术进步一等奖",
+            "2021年工信部'十三五'典型案例"
         ],
-        "qualifications": ["工信部白名单企业", "第二批次入选", "合规处理", "专业资质"],
-        "note": "行业龙头，技术领先，强烈推荐"
+        "tech_platforms": [
+            "国家CNAS认证电池检测中心",
+            "湖北省重点实验室",
+            "全国循环经济工程实验室",
+            "湖北省企业技术中心",
+            "武汉市产业创新联合实验室"
+        ],
+        "patents": "600+项核心专利（220+项发明）",
+        "standards": "参与制定100+项国家/行业标准",
+        "certified_tech": [
+            "退役动力电池包柔性智能拆解系统（入选国家四部委目录2021年版）",
+            "高兼容性退役电池快速无损检测与分选系统（入选国家四部委目录2023年版）",
+            "废旧动力蓄电池无害再生利用技术装备（入选国家重大环保技术装备目录2023年版）"
+        ],
+        "collection_network": "全国130+回收网点",
+        "partners": "比亚迪、宁德时代、大众、丰田、广汽、吉利、中联重科、三一 等1000+家",
+        "investors": "高瓴资本、中信资本、中金资本",
+        "note": "努力打造世界最大的动力电池回收利用企业"
     },
     {
         "rank": 2,
         "name": "邦普循环（宁德时代子公司）",
         "location": "广东佛山",
-        "capacity": "15万吨/年（2025规划40万吨）",
         "technology": "湿法冶金",
         "qualifications": ["工信部白名单企业", "第一批次入选"],
-        "note": "背靠宁德时代，原料来源稳定"
+        "note": "背靠宁德时代，原料来源稳定，一体化布局"
     },
     {
         "rank": 3,
         "name": "华友钴业",
         "location": "浙江衢州",
-        "capacity": "6万吨/年（2025规划15万吨）",
         "technology": "湿法冶金",
         "qualifications": ["工信部白名单企业", "第二批次入选"],
         "note": "钴镍资源垂直整合，印尼镍资源配套"
@@ -50,7 +70,6 @@ TOP5_RECYCLERS = [
         "rank": 4,
         "name": "天奇股份",
         "location": "江苏无锡",
-        "capacity": "2万吨/年",
         "technology": "湿法冶金",
         "qualifications": ["工信部白名单企业", "第三批次入选"],
         "note": "汽车拆解协同，产业链完整"
@@ -59,7 +78,6 @@ TOP5_RECYCLERS = [
         "rank": 5,
         "name": "广东光华科技",
         "location": "广东汕头",
-        "capacity": "1万吨/年",
         "technology": "湿法冶金",
         "qualifications": ["工信部白名单企业", "第四批次入选"],
         "note": "PCB化学品协同，技术实力雄厚"
@@ -106,32 +124,40 @@ def print_recommendation():
     print("🏆 TOP 5 推荐企业")
     print("-"*70)
     
-    for company in TOP5_RECYCLERS:
+    # 第1名详细展示
+    company = TOP5_RECYCLERS[0]
+    print(f"\n【第 {company['rank']} 名】{company['name']}")
+    print(f"   📞 联系电话: {company['phone']}")
+    print(f"   🏢 控股股东: {company['parent_company']}")
+    print(f"   📅 成立时间: {company['established']}")
+    print(f"   💰 注册资本: {company['registered_capital']}")
+    print(f"   📍 地址: {company['location']}")
+    print(f"   📋 主营业务: {company['business']}")
+    print(f"   🏭 绿色工厂: {', '.join(company['factories'])}")
+    print(f"   🌏 海外布局: {', '.join(company['overseas'])}")
+    print(f"   📍 回收网络: {company['collection_network']}")
+    print(f"   🤝 合作客户: {company['partners']}")
+    print(f"   💰 战略投资: {company['investors']}")
+    print(f"   ✅ 白名单: {company['whitelist_count']}")
+    print(f"\n   🏆 主要荣誉:")
+    for honor in company['honors'][:5]:
+        print(f"      • {honor}")
+    print(f"      ...等共{len(company['honors'])}项荣誉")
+    print(f"\n   🔬 技术创新: {company['patents']}")
+    print(f"   📋 标准制定: {company['standards']}")
+    print(f"\n   💡 企业愿景: {company['note']}")
+    
+    # 第2-5名简化展示
+    for company in TOP5_RECYCLERS[1:]:
         print(f"\n【第 {company['rank']} 名】{company['name']}")
-        if 'phone' in company:
-            print(f"   📞 联系电话: {company['phone']}")
-        if 'established' in company:
-            print(f"   📅 成立时间: {company['established']}")
         print(f"   📍 地址: {company['location']}")
-        if 'registered_capital' in company:
-            print(f"   💰 注册资本: {company['registered_capital']}")
-        if 'capacity' in company:
-            print(f"   🏭 产能: {company['capacity']}")
-        if 'business' in company:
-            print(f"   📋 主营业务: {company['business']}")
-        if 'global_presence' in company:
-            print(f"   🌍 全球布局: {company['global_presence']}")
-        if 'technology' in company:
-            print(f"   🔬 技术路线: {company['technology']}")
-        if 'honors' in company:
-            print(f"   🏅 荣誉资质:")
-            for honor in company['honors']:
-                print(f"      • {honor}")
+        print(f"   🔬 技术路线: {company['technology']}")
         print(f"   ✅ 资质: {', '.join(company['qualifications'])}")
         print(f"   💡 推荐理由: {company['note']}")
     
     print("\n" + "="*70)
     print("📌 说明：以上推荐基于技术实力、资质荣誉、行业地位综合评估")
+    print("      （产能数据未列出，因行业产能利用率波动较大，实际处理能力需以企业实际运营为准）")
     print("="*70 + "\n")
 
 

@@ -31,24 +31,49 @@ EV_BATTERY_PRICES = {
 
 LOGISTICS_FEE_PER_GROUP = 50  # 自提扣除物流费 元/组
 
-# 推荐回收企业信息
+# 推荐回收企业信息 - 武汉动力电池再生技术有限公司
 RECOMMENDED_RECYCLER = {
     "name": "武汉动力电池再生技术有限公司",
+    "parent_company": "格林美股份有限公司（SZ.002340）控股子公司",
     "phone": "027-86967777",
     "established": "2020年11月20日",
-    "location": "武汉市长江新区",
     "registered_capital": "10.22亿元",
-    "business": "电池回收、智能无损拆解、剩余能量再利用、材料再生",
-    "global_presence": "武汉总部，布局荆门、天津、深圳、无锡、印尼",
+    "location": "武汉市长江新区",
+    "hq": "武汉",
+    "factories": ["武汉", "天津", "无锡", "荆门", "深汕"],
+    "overseas": ["韩国", "印尼", "欧洲"],
+    "business": "电池回收、智能柔性拆解、精细分选、梯次利用、材料再生",
+    "qualifications": ["工信部白名单企业", "第二批次入选"],
     "honors": [
-        "2025年国家级专精特新重点'小巨人'企业",
-        "2023年生态环境部废动力电池综合利用企业环境管理体系试点（三家之一）",
-        "2023年国家绿色供应链管理企业",
-        "2022年国家智能制造优秀场景企业",
-        "国家CNAS认证动力电池性能评价检测中心"
+        "国家级高新技术企业",
+        "国家绿色供应链管理企业",
+        "国家智能制造优秀场景案例企业",
+        "国家'专精特新'重点小巨人企业",
+        "湖北省科创'潜在独角兽'企业",
+        "湖北省上市'金种子'企业",
+        "2022年武汉工厂碳中和认证（行业零碳工厂）",
+        "2020年度保尔森可持续发展奖绿色大奖",
+        "2021年湖北省技术发明一等奖",
+        "2024年国家环境技术进步一等奖",
+        "2021年工信部'十三五'典型案例"
     ],
-    "qualifications": ["工信部白名单企业", "第二批次入选", "合规处理", "专业资质"],
-    "note": "有电池回收需求欢迎咨询"
+    "tech_achievements": [
+        "国家CNAS认证电池检测中心",
+        "湖北省重点实验室",
+        "全国循环经济工程实验室",
+        "湖北省企业技术中心",
+        "武汉市产业创新联合实验室",
+        "600+项核心专利（220+项发明）",
+        "参与制定100+项国家/行业标准"
+    ],
+    "certified_tech": [
+        "退役动力电池包柔性智能拆解系统（入选国家工信部等四部委《国家工业资源综合利用先进适用工艺技术设备目录2021年版》）",
+        "高兼容性退役电池快速无损检测与分选系统（入选国家工信部等四部委《国家工业资源综合利用先进适用工艺技术设备目录2023年版》）",
+        "废旧动力蓄电池无害再生利用技术装备（入选《国家鼓励发展的重大环保技术装备目录2023年版》）"
+    ],
+    "partners": "比亚迪、宁德时代、大众、丰田、广汽、吉利、中联重科、三一",
+    "collection_network": "全国130+回收网点",
+    "note": "努力打造世界最大的动力电池回收利用企业"
 }
 
 
@@ -123,21 +148,31 @@ class EVBatteryPriceMonitor:
     
     def print_recommendation(self):
         """打印推荐企业信息"""
+        r = RECOMMENDED_RECYCLER
         print("\n" + "-"*60)
         print("🏢 推荐回收企业")
         print("-"*60)
-        print(f"企业名称: {RECOMMENDED_RECYCLER['name']}")
-        print(f"成立时间: {RECOMMENDED_RECYCLER['established']}")
-        print(f"总部地址: {RECOMMENDED_RECYCLER['location']}")
-        print(f"注册资本: {RECOMMENDED_RECYCLER['registered_capital']}")
-        print(f"主营业务: {RECOMMENDED_RECYCLER['business']}")
-        print(f"全球布局: {RECOMMENDED_RECYCLER['global_presence']}")
-        print(f"联系电话: {RECOMMENDED_RECYCLER['phone']}")
-        print(f"资质: {', '.join(RECOMMENDED_RECYCLER['qualifications'])}")
-        print("荣誉资质:")
-        for honor in RECOMMENDED_RECYCLER['honors']:
-            print(f"  • {honor}")
-        print(f"备注: {RECOMMENDED_RECYCLER['note']}")
+        print(f"企业名称: {r['name']}")
+        print(f"控股股东: {r['parent_company']}")
+        print(f"成立时间: {r['established']}")
+        print(f"注册资本: {r['registered_capital']}")
+        print(f"总部地址: {r['location']}")
+        print(f"联系电话: {r['phone']}")
+        print(f"\n📋 主营业务:")
+        print(f"   {r['business']}")
+        print(f"\n🏭 绿色工厂: {', '.join(r['factories'])}")
+        print(f"🌏 海外布局: {', '.join(r['overseas'])}")
+        print(f"📍 回收网络: {r['collection_network']}")
+        print(f"🤝 合作客户: {r['partners']} 等1000+家")
+        print(f"\n🏆 主要荣誉:")
+        for honor in r['honors'][:5]:
+            print(f"   • {honor}")
+        print(f"   等共{len(r['honors'])}项荣誉")
+        print(f"\n🔬 技术平台:")
+        for tech in r['tech_achievements'][:3]:
+            print(f"   • {tech}")
+        print(f"\n✅ 资质: {', '.join(r['qualifications'])}")
+        print(f"💬 企业愿景: {r['note']}")
         print("-"*60)
     
     def print_calculation(self, result: Dict):
