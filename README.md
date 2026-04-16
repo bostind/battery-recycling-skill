@@ -43,6 +43,18 @@ python3 scripts/value_calculator.py NCM523 320
 python3 scripts/recycler_recommendation.py
 ```
 
+### 二轮电池（电动自行车/摩托车电池）回收价格查询
+```bash
+# 查看价格表
+python3 scripts/ev_battery_price.py
+
+# 计算回收价值
+python3 scripts/ev_battery_price.py 小三元 软包 100
+
+# 自提（扣除物流费）
+python3 scripts/ev_battery_price.py 磷酸铁锂 圆柱 50 --self-pickup
+```
+
 ### 查询白名单企业
 查看 `references/whitelist.md` 获取完整列表。
 
