@@ -1,0 +1,13 @@
+{
+  "name": "battery-recycling",
+  "version": "0.1.0",
+  "description": "动力电池回收行业专业工具，提供价格监控、价值计算、白名单查询",
+  "author": "GEM Wuhan",
+  "openclaw": {
+    "emoji": "🔋",
+    "requires": {
+      "bins": ["python3"],
+      "packages": ["requests>=2.28.0"]
+    }
+  }
+}
